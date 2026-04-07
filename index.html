@@ -19,6 +19,60 @@
             --bg-light: #f1f5f9;
             --transition: all 0.3s ease;
         }
+        #html, body{
+            overflow-x:hidden;
+            width: 100%;
+        }
+        @media (max-width:768px) {
+            .navbar {
+                padding:15px 20px;
+                fliex-wrap: wrap;
+            }
+            .logo{
+                font: size 1.8rem;
+                line-heigh: 1.1;
+            }
+            .nav-links {
+                display:flex;
+                flex-wrap:wrap;
+                gap:15px;
+                justify-content:center;
+                width:100%;
+                margin-gap:15px;
+            }
+            .hero{
+                padding:100px 20px 60px;
+                text-align:center;
+            }
+            .hero h1{
+                font-size:3rem;
+                line-height:1.1;
+            }
+            .hero p{
+                font-size:1.2;
+                padding:0 10px;
+            }
+            .hero.btn{
+                width: 80%;
+                max-width:280px;
+            }
+            .contact-container{
+                display:flex;
+                flex-direction: column;
+                padding:20px;
+            }
+            .contact-box,
+            .contact-form{
+                width:100%;
+                max-width:100%;
+            }
+            .contact-form input,
+            .contact-form textarea {
+                width:100%;
+                box-sizing:border-box;
+            }
+        }
+
 
         * {
             margin: 0;
