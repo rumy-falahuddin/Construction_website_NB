@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>North Blue | Construction & Design</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary-color: #0f172a; /* Deep Navy Blue */
+            --accent-color: #3b82f6;  /* Bright Blue */
+            --text-light: #f8fafc;
+            --text-dark: #334155;
+            --bg-light: #f1f5f9;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* --- HERO SECTION (DASHBOARD) --- */
+        #home {
+            height: 100vh;
+            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), 
+                        url('https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1920,fit=crop/YBgy5BM91wuyn0nr/front-page-01-m2WrlMRDE0FbrNoA.jpg');
+                        
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 0 20px;
+        }
+
+        #home h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        #home p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--accent-color);
+        }
+
+        /* --- SECTIONS GENERAL --- */
+        
+        section {
+            padding: 80px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .section-title .line {
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 0 auto;
+        }
+
+        /* --- SERVICES SECTION --- */
+                :root {
+            /* CHANGE COLORS HERE */
+            --primary-color: #0f172a; /* Dark Blue/Grey */
+            --accent-color: #f4b400;  /* Construction Orange */
+            --bg-color: #d7e0e7;
+            --text-color: #333;
+        }
+
+        .services-section {
+            padding: 80px 20px;
+            background-color: var(--bg-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-header p {
+            color: #000000;
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* Grid Layout */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Service Card */
+        .service-card {
+            background: rgb(255, 255, 255);
+            border-radius: 8px;
+            overflow: hidden; /* Ensures image stays inside rounded corners */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        /* Image Container */
+        .card-image {
+            height: 250px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures image covers area without stretching */
+            transition: transform 0.5s ease;
+        }
+
+        /* Hover effect on image */
+        .service-card:hover .card-image img {
+            transform: scale(1.05); /* Slight zoom on hover */
+        }
+
+        /* Content Area */
+        .card-content {
+            padding: 30px;
+            flex-grow: 1; /* Pushes content to fill space */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-content h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        /* Adds a small colored line under the title */
+        .card-content h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .card-content p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .learn-more {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .learn-more i {
+            margin-left: 8px;
+            transition: transform 0.3s;
+        }
+
+        .learn-more:hover {
+            color: var(--accent-color);
+        }
+
+        .learn-more:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            .services-grid {
+                grid-template-columns: 1fr; /* Stack vertically on mobile */
+            }
+        }
+
+        /* --- PROJECTS SECTION --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            height: 250px;
+        }
+
+        .project-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-overlay {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .project-item:hover .project-overlay {
+            bottom: 0;
+        }
+
+        .project-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* --- ABOUT SECTION --- */
+        #about {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        #about .section-title h2 {
+            color: var(--text-light);
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #cbd5e1;
+        }
+
+        .owner-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+            margin-top: 2rem;
+        }
+
+        .owner-card h4 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .owner-card span {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        .about-image {
+            flex: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            border: 4px solid var(--accent-color);
+        }
+
+        /* --- CONTACT SECTION --- */
+        #contact {
+            background-color: var(--bg-light);
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            background-color: #ffffff;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .contact-info p{
+            margin-bottom: 15px;
+            flex: 1;
+            min-width: 300px;
+            
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-right: 1rem;
+        }
+
+        .contact-form {
+            flex: 1.5;
+            min-width: 300px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+    .footer {
+    background: linear-gradient(135deg, #0f172a, #1e3751);
+    color: #ffffff;
+    padding: 40px 8% 20px;
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-box {
+    flex: 1;
+    min-width: 220px;
+}
+
+/* Center Company Section */
+.footer-box:first-child {
+    text-align: center;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+/* Move Contact Section to Right */
+.footer-box:last-of-type {
+    text-align: right;
+    max-width: 280px;
+}
+
+.footer-logo {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+.footer-logo span {
+    color: #f4b400;
+}
+
+.footer-box p {
+    color: #cbd5e1;
+    line-height: 1.7;
+    font-size: 0.92rem;
+    margin-bottom: 10px;
+}
+
+.footer-box h3 {
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+    color: #f4b400;
+}
+
+.footer-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-box ul li a {
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.footer-social a:hover {
+    font-size: 24px;
+    color: white;
+    transition: 0.3s;
+    background: #f4b400;
+    color: #0f172a;
+}
+
+.footer-box p i {
+    color: #f4b400;
+    margin-right: 8px;
+}
+
+.footer-bottom {
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 20px;
+    padding-top: 15px;
+}
+
+.footer-bottom p {
+    color: #94a3b8;
+    font-size: 0.88rem;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-box,
+    .footer-box:last-of-type {
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+}
+
+       
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">NORTH <span>BLUE</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home">
+        <h1>Building Excellence</h1>
+        <p>North Blue delivers premium construction services. From robust Exteriors to elegant Interiors, we turn your vision into reality.</p>
+        <a href="#contact" class="btn">Get a Quote</a>
+    </section>
+
+    <!-- SERVICES SECTION -->
+     <!-- START OF SERVICES SECTION -->
+    <section id="services" class=" services-section">
+        <div class="section-header">
+            <h2>Our Services</h2>
+            <p>We provide comprehensive construction solutions with a focus on quality craftsmanship and efficient management.</p>
+        </div>
+
+        <div class="services-grid">
+            
+            <!-- Service 1: Interior Work -->
+            <div class="service-card">
+                <div class="card-image">
+                    <!-- Replace src with your own image URL -->
+                    <img src="https://chiedesign.in/wp-content/uploads/2022/05/Luxury-Interior-Design-Living-Room-980x635.jpg" alt="Interior Work">
+                </div>
+                <div class="card-content">
+                    <h3>Interior Work</h3>
+                    <p>Transform your indoor spaces with our expert finishing. We specialize in drywall, painting, flooring, cabinetry, and modern fixture installation to create comfortable, stylish environments.</p>
+                </div>
+            </div>
+
+            <!-- Service 2: Exterior Work -->
+            <div class="service-card">
+                <div class="card-image">
+                    <!-- Replace src with your own image URL -->
+                    <img src="https://www.scmarchitecture.com/wp-content/uploads/2015/07/Salmon_dusk_opt.jpg" alt="Exterior Work">
+                </div>
+                <div class="card-content">
+                    <h3>Exterior Work</h3>
+                    <p>Enhance your property's curb appeal and durability. Our exterior services include roofing, siding, facade, windows, and landscaping hardscaping to withstand the elements.</p>
+                </div>
+            </div>
+
+            <!-- Service 3: Project Management -->
+            <div class="service-card">
+                <div class="card-image">
+                    <!-- Replace src with your own image URL -->
+                    <img src="https://www.workyard.com/wp-content/uploads/2023/07/Construction-project-manager-1536x878.jpeg" alt="Project Management">
+                </div>
+                <div class="card-content">
+                    <h3>Project Management</h3>
+                    <p>From blueprints to the final handshake, we handle the logistics. We coordinate subcontractors, manage budgets, ensure safety compliance, and keep your timeline on track.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects">
+        <div class="section-title">
+            <h2>Recent Projects</h2>
+            <div class="line"></div>
+        </div>
+        <div class="projects-grid">
+            <div class="project-item">
+                <img src="nb1.jpeg" alt="interior work">
+                <div class="project-overlay">
+                    <h3>Flooring work</h3>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="nb4.jpeg" alt=" Exterior">
+                <div class="project-overlay">
+                    <h3>Exterior work</h3>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="nb2.jpeg" alt="Office Space">
+                <div class="project-overlay">
+                    <h3>Facade work </h3>
+                </div>
+            </div>
+              <div class="project-item">
+                <img src="nb3.jpeg" alt="fooring">
+                <div class="project-overlay">
+                    <h3>Flooring Wwrk</h3>
+                </div>
+             </div>
+
+             <div class="project-item">
+                <img src="nb9.jpeg" alt="flooring">
+                <div class="project-overlay">
+                    <h3>Exterior Wwrk</h3>
+                </div>
+             </div>
+             <div class="project-item">
+                <img src="nb5.jpeg" alt="office work">
+                <div class="project-overlay">
+                    <h3>Interior modern office</h3>
+                </div>
+             </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <div class="section-title">
+            <h2>About North Blue</h2>
+            <div class="line"></div>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Our Mission</h3>
+                <p>At North Blue, we believe that construction is more than just building structures; it's about creating environments where people thrive. Founded with a vision to revolutionize the construction industry, we have grown into a trusted name for both residential and commercial projects.</p>
+                
+                <p>Our team is dedicated to quality, safety, and innovation. Whether it's a complete home renovation or a large-scale commercial build, we bring the same level of passion and precision to every job.</p>
+
+                <div class="owner-card">
+                    <h4>Meet the Founder</h4>
+                    <p><strong>Afroz Alam Shaikh</strong></p>
+                    <p style="margin-top: 10px; font-size: 0.9rem; font-style: italic;">"Our goal is to build trust through transparency and quality. Every project is a partnership."</p>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="https://wallpapercave.com/wp/wp1842342.jpg" alt="Team Meeting">
+            </div>
+        </div>
+    </section>
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <div class="section-title">
+            <h2>Contact Us</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="contact-container">
+            <!-- Contact Information -->
+            <div class="contact-info">
+
+                <h3>Get in Touch</h3>
+                <p>Ready to start your next project? Reach out to us for a consultation or quote.</p>
+
+                
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>North Blue, Flat No. B-1/202, Evershine Pine BLDHG, Mira Road East Thane Maharashtra 401107</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+91 8928706474</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>northblue30@gmail.com</span>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <form action="https://api.web3forms.com/submit" method="POST"> <form class="contact-form" id="contactForm">
+                <input type="hidden" name="access_key" value="34194f04-792c-477c-b13a-d132112f1210">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message"placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+   <footer class="footer">
+
+        <!-- Company Details -->
+        <div class="footer-box">
+            <h2 class="footer-logo">NORTH <span>BLUE</span></h2>
+            <p>
+                Your trusted construction partner for interiors, exteriors,
+                renovation and project management.
+            </p>
+
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://wa.me/918928706474" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-box">
+            <h3>Contact Us</h3>
+            <p><i class="fas fa-map-marker-alt"></i> Mira Road East, Thane, Maharashtra</p>
+            <p><i class="fas fa-phone"></i> +91 8928706474</p>
+            <p><i class="fas fa-envelope"></i> northblue30@gmail.com</p>
+        </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 North Blue. All Rights Reserved.</p>
+    </div>
+</footer>
+  
+    <!-- JAVASCRIPT FOR MOBILE MENU & FORM -->
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Form Submission Simulation
+        const form = document.getElementById('contactForm');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevents page reload
+            alert('Thank you! Your message has been sent to North Blue.');
+            form.reset(); // Clears the form
+        });
+    </script>
+
+</body>
+</html>
